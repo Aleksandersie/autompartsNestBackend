@@ -13,9 +13,13 @@ export class EbayItemsService {
         return await this.ebayItemsRepository.findAll()
     }
     async searchOne(search){
+        if(search===''){
+            console.log("em")
+            return []
+        }
         return await this.ebayItemsRepository.findAll({
             where:{
-                title:{ [Op.iLike]: "%" + search + "%" }
+                title:{ [Op.iLike]: "%" + search + "%" }  
             }
         })
     }
