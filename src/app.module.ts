@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { SequelizeModule } from "@nestjs/sequelize";
 import { EbayItemsModule } from './ebay-items/ebay-items.module';
 import EbayItems from './ebay-items/ebay-items.model';
+import { ConfigModule } from '@nestjs/config';
+
 
 @Module({
   imports: [
@@ -15,6 +17,7 @@ import EbayItems from './ebay-items/ebay-items.model';
       autoLoadModels: true,
       models: [EbayItems],
     }),
+    ConfigModule.forRoot(),
     EbayItemsModule
   ],
   controllers: [],

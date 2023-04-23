@@ -11,10 +11,7 @@ export class EbayItemsController {
     getAll(){
         return this.itemsService.getAllItems()
     }
-    // @Post("/search")
-    // searchOne(@Body()search){
-    //   return  this.itemsService.searchOne(search.text)
-    // }
+   
     @Get("/search")
     searchOne(@Query("text")text:string){
       console.log(text)
