@@ -17,5 +17,17 @@ export class EbayItemsController {
       console.log(text)
       return  this.itemsService.searchOne(text)
     } 
+     @Get("/pageText")
+    getText(@Query("currentLanguage")currentLanguage:string){
+      console.log(currentLanguage)
+      if (currentLanguage === "EN"){
+        return {text:"text is en"}
+      }
+       if (currentLanguage === "DE"){
+        return {text:"text is de"}
+      }
+
+    } 
+
 }
   
