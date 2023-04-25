@@ -3,6 +3,9 @@ import { SequelizeModule } from "@nestjs/sequelize";
 import { EbayItemsModule } from './ebay-items/ebay-items.module';
 import EbayItems from './ebay-items/ebay-items.model';
 import { ConfigModule } from '@nestjs/config';
+import { PageService } from './page/page.service';
+import { PageController } from './page/page.controller';
+import { PageModule } from './page/page.module';
 
 
 @Module({
@@ -18,9 +21,10 @@ import { ConfigModule } from '@nestjs/config';
       models: [EbayItems],
     }),
     ConfigModule.forRoot(),
-    EbayItemsModule
+    EbayItemsModule,
+    PageModule
   ],
-  controllers: [],
-  providers: [],
+  controllers: [PageController],
+  providers: [PageService],
 })
 export class AppModule {}
